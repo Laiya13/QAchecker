@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <title>Content Comparison</title>
+<style>
+textarea#paragraph1 {
+    width: 100%;
+    height: 600px;
+}
+textarea#paragraph2 {
+    width: 100%;
+    height: 600px;
+}
+.row {
+    padding: 50px;
+}
+</style>
+</head>
+<body>
+<div class="row">
+    <div class="col-sm-6">
+    <div id="content1">
+        <p>Add content to the first paragraph:</p>
+        <textarea id="paragraph1" placeholder="Type something..."></textarea>
+    </div></div>
+    <div class="col-sm-6">
+    <div id="content2">
+        <p>Add content to the second paragraph:</p>
+        <textarea id="paragraph2" placeholder="Type something..."></textarea>
+    </div></div>
+</div>
+    
+    <p id="result"></p>
+
+    <script>
+        // Get references to the textarea elements and the result paragraph
+        var paragraph1 = document.getElementById("paragraph1");
+        var paragraph2 = document.getElementById("paragraph2");
+        var result = document.getElementById("result");
+
+        // Add event listeners to the textarea elements to monitor changes
+        paragraph1.addEventListener("input", compareContent);
+        paragraph2.addEventListener("input", compareContent);
+
+        // Function to compare the content of the two paragraphs
+        function compareContent() {
+            var content1 = paragraph1.value;
+            var content2 = paragraph2.value;
+
+            if (content1 === content2) {
+                result.textContent = "The content of both paragraphs is the same.";
+            } else {
+                result.textContent = "The content of both paragraphs is different.";
+            }
+        }
+    </script>
+</body>
+</html>
